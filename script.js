@@ -6,7 +6,7 @@ let app = new Vue({
     error: false,
     number: '1',
     min: 1,
-    max: 1519 ijyhhb + ,
+    max: 151,
     current: {
       name: '',
       id: '',
