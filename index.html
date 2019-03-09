@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="/styles.css" />
+  <link href="https://fonts.googleapis.com/css?family=VT323" rel="stylesheet">
+  <title>Creative 3</title>
+</head>
+
+<body>
+
+
+  <div id="app">
+    <h1>Poke-Dex</h1>
+    <form @submit.prevent="search" id="searchbar">
+      <input type="text" v-model="search_text">
+      <button type="submit" class="button">Search</button>
+    </form>
+    <p>
+      <button v-on:click="previousPoke" class="button">Previous</button>
+      <button v-on:click="nextPoke" class="button">Next</button>
+      <button v-on:click="randomPoke" class="button">Random</button>
+    </p>
+    <div v-if="error">
+      <p>{{message}} </p>
+    </div>
+    <div v-if="loading">
+      <p>Loading...</p>
+    </div>
+    <div v-else id="main">
+      <div id="container">
+        <h2>{{current.name}}</h2>
+        <img v-bind:src="current.sprites.front_default">
+        <p>Height: {{current.height}}</p>
+        <p>Weight: {{current.weight}}</p>
+        <p>Types: </p>
+        <ul>
+          <li v-for="type in current.types">{{type.type.name}}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer" style="text-align:center"><a href="https://github.com/BYU-CS-260-Winter-2019/lab-3-davidasolomon92">GitHub Classroom</a></div>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.2/dist/vue.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="https://unpkg.com/vue-star-rating/dist/star-rating.min.js"></script>
+  <script src="/script.js"></script>
+</body>
+
+</html>
